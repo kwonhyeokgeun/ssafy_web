@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let 한글 ="안녕하세요"    ;
+        console.log(한글);
+
+        let a;
+        console.log(a);  //undefined
+
+        let b=null;
+        console.log(b); //null
+
+        console.log(a==b); //true  //값이 같은지
+        console.log(a===b);  //false //타입도 같은지
+
+        console.log(typeof a);  //undefined
+        console.log(typeof b);  //object
+
+        if(a === undefined) console.log("a is undefined 1");  //이게 맞음
+        if(a === "undefined") console.log("a is undefined 2"); //이건 아님
+
+        if(typeof a === undefined) console.log("a is type of undefined 1"); //이건 아님
+        if(typeof a === "undefined") console.log("a is type of undefined 2"); //이건 맞음
+    </script>
+
+</body>
+</html>
