@@ -28,6 +28,37 @@
 
         if(typeof a === undefined) console.log("a is type of undefined 1"); //이건 아님
         if(typeof a === "undefined") console.log("a is type of undefined 2"); //이건 맞음
+
+        
+        //함수 방식
+        function add1(a,b){
+            return a+b;
+        }
+        var add2 = function(a,b){
+            return a+b;
+        }
+        var add3 = new Function('a','b','return a+b');
+        console.log(add1(10,20));  //30
+        console.log(add2(10,20));  //30
+        console.log(add3(10,20));  //30
+
+        function add4(a,b,func){
+            let ret=func(a,b);
+            return ret;
+        }
+        console.log(add4(10,20,add2));  //30
+
+        function myFunc(){
+            const add5=function(a,b){
+                return a+b;
+            }
+
+            return add5;
+        }
+
+        const add_param = myFunc();
+        console.log(add_param(30,100)); //130
+
     </script>
 
 </body>

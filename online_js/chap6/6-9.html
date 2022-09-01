@@ -29,7 +29,11 @@
       //   이벤트 발생 시까지 대기하지 않고 바로 실행된다.
       // input.addEventListener('blur', checkVal(MIN_ID_LENGTH));
       //   이벤트 발생 시까지 대기한다. 문제는 인자값을 전달할 수 없다. Event객체가 전달.
-      input.addEventListener('blur', checkVal);
+      //input.addEventListener('blur', checkVal); //인자를 보내지 않으므로 if문이 무조건 false가 되서 else가 실행됨
+
+      input.addEventListener('blur',function(){ //이렇게 해야만 함!!
+        checkVal(MIN_ID_LENGTH);
+      })
     </script>
   </body>
 </html>
