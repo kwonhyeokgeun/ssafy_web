@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #container {
+        width: 600px;
+        height: 500px;
+        border: 1px solid purple;
+      }
+
+      #wrapper {
+        /*relative*/
+        width: 400px;
+        height: 300px;
+        border: 1px solid blue;
+
+        position: relative;
+        top: 30px; /*원래 있어야하는 위치에서 이동*/
+        left: 30px;
+      }
+      .item {
+        /*absolute*/
+        width: 100px;
+        height: 100px;
+        background-color: antiquewhite;
+
+        position: absolute;
+        bottom: 30px; /*상위 relatvie나 absolute에서 30떨어짐*/
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="wrapper">
+        <div class="item"></div>
+      </div>
+    </div>
+  </body>
+</html>

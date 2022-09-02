@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        border: 1px solid lightcoral;
+        min-height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h4 id="title">제목입니다</h4>
+      <p id="content">내용입니다.</p>
+      <hr />
+    </div>
+    <button onclick="func1();" id="btn1">제목 변경</button>
+    <button id="btn2">내용 변경</button>
+    <button id="btn3">테투리 변경</button>
+
+    <script>
+      //3가지 방식으로 구현
+      function func1() {
+        document.querySelector("#title").innerText = "제목이 변경되었습니다.";
+      }
+
+      document.querySelector("#btn2").onclick = function () {
+        document.querySelector("#content").innerText = "내용이 변경되었습니다.";
+      };
+
+      document.querySelector("#btn3").addEventListener("click", function () {
+        document.querySelector("#container").style.border = "1px solid blue";
+      });
+    </script>
+  </body>
+</html>

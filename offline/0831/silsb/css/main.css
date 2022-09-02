@@ -1,0 +1,117 @@
+body {
+  margin: 0 100px;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+}
+header nav a {
+  text-decoration: none;
+  color: lightgray;
+}
+.header_nav_menu > div {
+  padding: 10px;
+}
+.header_nav_home {
+  font-size: 35px;
+}
+.header_nav_menu {
+  display: flex;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+.content_body {
+  margin-left: 30px;
+}
+.profile {
+  text-align: center;
+  padding: 20px;
+}
+.profile img {
+  width: 170px;
+}
+.vote {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+.vote_title {
+  text-align: center;
+}
+.vote_question {
+  font-weight: bold;
+}
+.vote_answer img {
+  width: 40px;
+}
+.vote_answer ul {
+  list-style: none;
+}
+.vote_date {
+  font-weight: bold;
+  text-align: center;
+}
+.vote_button {
+  text-align: end;
+  margin-right: 30px;
+}
+.btn_primary {
+  color: white;
+  background-color: purple;
+}
+
+.store_display {
+  background-color: rgb(153, 152, 152);
+  padding: 15px 0px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.store_item li {
+  background-color: lightgray;
+  margin: 10px 0px;
+  list-style: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.menu ul li {
+  width: auto;
+  display: inline-block;
+  margin-right: 30px;
+  padding: 5px;
+  border: 1px solid lightgray;
+}
+.menu_item img {
+  width: 200px;
+  /* width: 100px; */
+}
+
+.article_popular {
+  float: left;
+}
+.article_new {
+  float: left;
+  margin-left: 30px;
+}
+
+.table_striped tbody tr:nth-child(odd) {
+  background-color: #f7f9fc;
+}
+
+.table_bordered {
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+}
+
+.table_bordered tbody th,
+.table_bordered tbody td {
+  border: 1px solid lightgray;
+}
+
+.article table {
+  width: 400px;
+}

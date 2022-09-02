@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //num
+      var num = 10;
+      changeNum(num);
+      console.log(num); //10  //안변함
+
+      function changeNum(num) {
+        num = 20;
+      }
+
+      //string
+      var str = "ssafy";
+      changeStr(str);
+      console.log(str); //ssafy //안변함
+      function changeStr(str) {
+        str = "hello";
+      }
+
+      //object
+      var car = { name: "현대" };
+      changeObj(car);
+      console.log(car); //현대
+      changeName(car);
+      console.log(car); //기아
+
+      function changeObj(obj) {
+        obj = { name: "볼보" };
+      }
+      function changeName(obj) {
+        obj.name = "기아";
+      }
+
+      //array
+      var nums = [1, 2, 3, 4];
+      changeFirst(nums);
+      console.log(nums); //[9, 2, 3, 4]
+      function changeFirst(array) {
+        array[0] = 9;
+      }
+    </script>
+  </body>
+</html>
