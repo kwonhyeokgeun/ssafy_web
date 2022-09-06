@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        let data=[1,2,3];
+        function getData(){
+
+            setTimeout(() => { //1초뒤에
+                data.push(4);
+                data.push(5);    
+                console.log("done");
+            }, 1000);
+            
+        }
+
+        function printData(){
+            data.forEach(el => console.log(el));
+        }
+
+        getData();
+        printData();
+        */
+        
+        let data=[1,2,3];
+        function getData( callback ){
+
+            setTimeout(() => { //1초뒤에
+                data.push(4);
+                data.push(5);    
+                console.log("done");
+                callback();  //이때 콜백을 호출하라
+            }, 1000);
+        }
+
+        function printData(){
+            data.forEach(el => console.log(el));
+        }
+
+        getData(printData);
+        
+    </script>
+    
+</body>
+</html>
