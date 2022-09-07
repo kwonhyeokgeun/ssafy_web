@@ -1,1 +1,51 @@
-sdf
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btnGet">버튼</button>
+    <div id="receivedData"></div>
+    <script>
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.onreadystatechange = ajaxCallback;
+
+      window.onload = function () {
+        document.querySelector("#btnGet").onclick = function () {
+          getJson();
+        };
+      };
+
+      function getJson() {
+        //백엔드로 보낼 파라미터 세팅
+        console.log("전송");
+        var url = new URL("http://localhost:8080/WebBasic/SimpleJsonListServlet");
+        url.searchParams.append("userId", "ssafy");
+        url.searchParams.append("msg", "안녕하세요");
+
+        httpRequest.open("GET", url, true); //async여부
+
+        httpRequest.send();
+      }
+
+      function ajaxCallback() {
+        if (httpRequest.readyState == XMLHttpRequest.DONE) {
+          //통신이 마무리됨
+          if (httpRequest.status == 200) {
+            //결과가 정상
+            console.log(httpRequest.responseText);
+            let userList = JSON.parse(httpRequest.responseText); //json문자열을 js array로 바꿈
+            let userHTML = ``;
+            userList.forEach((user) => {
+              userHTML += `<div><span>${user.userSeq}</span><span>${user.userName}</span><span>${user.userEmail}</span></div>`;
+            });
+            document.querySelector("#receivedData").innerHTML = userHTML;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

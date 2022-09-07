@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btnGet">버튼</button>
+    <div id="receivedData"></div>
+    <script>
+      window.onload = function () {
+        document.querySelector("#btnGet").onclick = function () {
+          getJson();
+        };
+      };
+
+      /*
+      //pomise 방식
+      function getJson() {
+        //백엔드로 보낼 파라미터 세팅
+        console.log("전송");
+
+        //url에 데이터 넣음
+        fetch("http://localhost:8080/WebBasic/SimpleJsonListServlet?userId=ssafy&msg=안녕하세요")
+          .then((response) => response.json())
+          .then((json) => {
+            let userHTML = ``;
+            json.forEach((user) => {
+              userHTML += `<div><span>${user.userSeq}</span><span>${user.userName}</span><span>${user.userEmail}</span></div>`;
+            });
+            document.querySelector("#receivedData").innerHTML = userHTML;
+          });
+      }*/
+
+      //pomise + async + away way 방식
+      async function getJson() {
+        //백엔드로 보낼 파라미터 세팅
+        console.log("전송");
+
+        var url = new URL("http://localhost:8080/WebBasic/SimpleJsonListServlet?userId=ssafy&msg=안녕하세요");
+        url.searchParams.append("userId", "ssafy");
+        url.searchParams.append("msg", "안녕하세요");
+
+        let response = await fetch(url); //비동기로 response받음
+        let json = await response.json();
+
+        let userHTML = ``;
+        json.forEach((user) => {
+          userHTML += `<div><span>${user.userSeq}</span><span>${user.userName}</span><span>${user.userEmail}</span></div>`;
+        });
+        document.querySelector("#receivedData").innerHTML = userHTML;
+      }
+    </script>
+  </body>
+</html>

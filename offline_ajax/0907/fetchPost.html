@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="sendForm">
+      <label for="userId">userId</label>
+      <input type="text" id="userId" value="ssafy" />
+      <label for="userPwd">userPwd</label>
+      <input type="text" id="userPwd" value="1234" />
+    </form>
+    <button id="btnGet">버튼</button>
+
+    <script>
+      window.onload = function () {
+        document.querySelector("#btnGet").onclick = function () {
+          sendData();
+        };
+      };
+
+      /*//promise 방식
+      function sendData() {
+        let userId = document.querySelector("#userId").value;
+        let userPwd = document.querySelector("#userPwd").value;
+        let urlParams = new URLSearchParams({
+          userId: userId,
+          userPwd: userPwd,
+        });
+
+        //option
+        let fetchOptions = {
+          method: "POST",
+          body: urlParams,
+        };
+
+        fetch("http://localhost:8080/WebBasic/SimplePostTestServlet", fetchOptions)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.result == "success") alert("성공!");
+            else if (data.result == "fail") alert("실패!");
+          });
+      }*/
+
+      //pomise + async + away way 방식
+      async function sendData() {
+        let userId = document.querySelector("#userId").value;
+        let userPwd = document.querySelector("#userPwd").value;
+        let urlParams = new URLSearchParams({
+          userId: userId,
+          userPwd: userPwd,
+        });
+
+        //option
+        let fetchOptions = {
+          method: "POST",
+          body: urlParams,
+        };
+
+        let response = await fetch("http://localhost:8080/WebBasic/SimplePostTestServlet", fetchOptions);
+        let data = await response.json();
+
+        if (data.result == "success") alert("성공!");
+        else if (data.result == "fail") alert("실패!");
+      }
+    </script>
+  </body>
+</html>
